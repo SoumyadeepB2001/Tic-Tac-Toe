@@ -15,8 +15,8 @@ public class TicTacToe extends JFrame implements ActionListener {
     JButton b1, b2, b3, b4, b5, b6, b7, b8, b9;
 
     public static void main(String[] args) {
-        TicTacToe obj = new TicTacToe("p1", "p2");
-        obj.setVisible(true);
+        //TicTacToe obj = new TicTacToe("p1", "p2");
+        //obj.setVisible(true);
     }
 
     TicTacToe(String pl1, String pl2) {
