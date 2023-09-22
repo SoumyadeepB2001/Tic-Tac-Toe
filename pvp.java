@@ -3,7 +3,7 @@ import java.awt.event.*;
 import java.net.URL;
 import java.awt.*;
 
-public class TicTacToe extends JFrame implements ActionListener {
+public class pvp extends JFrame implements ActionListener {
 
     String player1, player2;
     int i = 0;
@@ -15,11 +15,10 @@ public class TicTacToe extends JFrame implements ActionListener {
     JButton b1, b2, b3, b4, b5, b6, b7, b8, b9;
 
     public static void main(String[] args) {
-        //TicTacToe obj = new TicTacToe("p1", "p2");
-        //obj.setVisible(true);
+        
     }
 
-    TicTacToe(String pl1, String pl2) {
+    pvp(String pl1, String pl2) {
         player1 = pl1;
         player2 = pl2;
         initComponents();
