@@ -73,7 +73,7 @@ public class Start extends JFrame implements ActionListener {
 				else {
 					String pl1 = String.valueOf(txtPlayer1.getText());
 					String pl2 = String.valueOf(txtPlayer2.getText());
-					TicTacToe obj = new TicTacToe(pl1, pl2);
+					PVP obj = new PVP(pl1, pl2);
 					obj.setVisible(true);
 					dispose();
 				}
