@@ -3,7 +3,7 @@ import java.awt.event.*;
 import java.net.URL;
 import java.awt.*;
 
-public class pvp extends JFrame implements ActionListener {
+public class PVP extends JFrame implements ActionListener {
 
     String player1, player2;
     int i = 0;
@@ -18,7 +18,7 @@ public class pvp extends JFrame implements ActionListener {
         
     }
 
-    pvp(String pl1, String pl2) {
+    PVP(String pl1, String pl2) {
         player1 = pl1;
         player2 = pl2;
         initComponents();
