@@ -114,30 +114,29 @@ public class PVP extends JFrame implements ActionListener {
     }
 
     public void check() {
-        if ((A[0] == A[1] && A[1] == A[2] && A[1] != '\0') || (A[3] == A[4] && A[4] == A[5] && A[4] != '\0')
-                || (A[6] == A[7] && A[7] == A[8] && A[7] != '\0') || (A[0] == A[3] && A[3] == A[6] && A[3] != '\0')
-                || (A[1] == A[4] && A[4] == A[7] && A[4] != '\0') || (A[2] == A[5] && A[5] == A[8] && A[5] != '\0')
-                || (A[0] == A[4] && A[4] == A[8] && A[4] != '\0') || (A[2] == A[4] && A[4] == A[6] && A[4] != '\0')) {
-            instruction.setText("");
-            disableButtons();
+        int[][] winningCombinations = {
+                { 0, 1, 2 }, { 3, 4, 5 }, { 6, 7, 8 }, // rows
+                { 0, 3, 6 }, { 1, 4, 7 }, { 2, 5, 8 }, // columns
+                { 0, 4, 8 }, { 2, 4, 6 } // diagonals
+        };
 
-            if (turn % 2 == 1)
-                JOptionPane.showMessageDialog(null, player1 + " wins");
-            else
-                JOptionPane.showMessageDialog(null, player2 + " wins");
+        for (int[] combo : winningCombinations) {
+            if (A[combo[0]] != '\0' && A[combo[0]] == A[combo[1]] && A[combo[1]] == A[combo[2]]) {
+                instruction.setText("");
+                disableButtons();
+
+                String winner = (turn % 2 == 1) ? player1 : player2;
+                JOptionPane.showMessageDialog(null, winner + " wins");
+                return;
+            }
         }
 
-        else if (turn == 9) {
+        if (turn == 9) {
             instruction.setText("");
             JOptionPane.showMessageDialog(null, "Draw");
             disableButtons();
-        }
-
-        else {
-            if (turn % 2 == 0)
-                instruction.setText(player1 + "'s turn");
-            else
-                instruction.setText(player2 + "'s turn");
+        } else {
+            instruction.setText((turn % 2 == 0 ? player1 : player2) + "'s turn");
         }
     }
 
