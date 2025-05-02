@@ -62,10 +62,12 @@ public class StartGame extends JFrame implements ActionListener {
                 dispose();
                 break;
             case "Player vs AI":
-                JOptionPane.showMessageDialog(null, "Launching Player vs AI...");
+                new AI(true).setVisible(true);
+                dispose();
                 break;
             case "AI vs Player":
-                JOptionPane.showMessageDialog(null, "Launching AI vs Player...");
+                new AI(false).setVisible(true);
+                dispose();
                 break;
         }
     }
