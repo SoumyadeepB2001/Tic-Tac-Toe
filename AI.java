@@ -81,9 +81,16 @@ public class AI extends JFrame {
     }
 
     private void makeAIMove() {
-        int aiMove = MiniMax.findBestMove(board);
+        int aiMove = TicTacToeAI.getBestMove(board, aiSymbol);
         if (aiMove < 0 || board[aiMove] != '\0')
             return;
+
+        // Add a little delay
+        try {
+            Thread.sleep(700);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         playSound("assets/writing.wav");
 
