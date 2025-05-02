@@ -3,7 +3,7 @@ import java.awt.event.*;
 import java.awt.*;
 
 public class StartGame extends JFrame implements ActionListener {
-    JButton pvpButton, aiButton;
+    JButton playerVsPlayerButton, playerVsAiButton, aiVsPlayerButton;
     JPanel contentPane;
 
     public static void main(String[] args) {
@@ -23,23 +23,35 @@ public class StartGame extends JFrame implements ActionListener {
         setContentPane(contentPane);
         contentPane.setLayout(null);
 
+        int frameWidth = 480;
+        int buttonWidth = 200;
+        int buttonHeight = 40;
+        int centerX = (frameWidth - buttonWidth) / 2;
+
         JLabel heading = new JLabel("TIC-TAC-TOE");
         heading.setFont(new Font("Serif", Font.BOLD, 20));
-        heading.setBounds(0, 30, 480, 30);
+        heading.setBounds(0, 30, frameWidth, 30);
         heading.setHorizontalAlignment(SwingConstants.CENTER);
         add(heading);
 
-        pvpButton = new JButton("Player vs Player");
-        pvpButton.setBounds(140, 90, 200, 40);
-        add(pvpButton);
-        pvpButton.addActionListener(this);
+        // Adjusted vertical spacing
+        playerVsPlayerButton = new JButton("Player vs Player");
+        playerVsPlayerButton.setBounds(centerX, 80, buttonWidth, buttonHeight);
+        add(playerVsPlayerButton);
+        playerVsPlayerButton.addActionListener(this);
 
-        aiButton = new JButton("Player vs AI");
-        aiButton.setBounds(140, 150, 200, 40);
-        add(aiButton);
-        aiButton.addActionListener(this);
+        playerVsAiButton = new JButton("Player vs AI");
+        playerVsAiButton.setBounds(centerX, 130, buttonWidth, buttonHeight);
+        add(playerVsAiButton);
+        playerVsAiButton.addActionListener(this);
 
-        setBounds(550, 200, 480, 280);
+        aiVsPlayerButton = new JButton("AI vs Player");
+        aiVsPlayerButton.setBounds(centerX, 180, buttonWidth, buttonHeight);
+        add(aiVsPlayerButton);
+        aiVsPlayerButton.addActionListener(this);
+
+        // Use original frame size
+        setBounds(550, 200, frameWidth, 280);
     }
 
     @Override
@@ -49,9 +61,11 @@ public class StartGame extends JFrame implements ActionListener {
                 new StartPVP().setVisible(true);
                 dispose();
                 break;
-
             case "Player vs AI":
                 JOptionPane.showMessageDialog(null, "Launching Player vs AI...");
+                break;
+            case "AI vs Player":
+                JOptionPane.showMessageDialog(null, "Launching AI vs Player...");
                 break;
         }
     }
