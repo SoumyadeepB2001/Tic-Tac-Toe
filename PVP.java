@@ -8,16 +8,12 @@ import javax.swing.border.LineBorder;
 import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.awt.*;
 
-public class PVP extends JFrame implements ActionListener {
+public class PVP extends JFrame {
     String player1, player2;
     int turn = 0;
     char A[] = new char[9];
-    JMenuBar mb;
-    JMenu options, help;
-    JMenuItem newGame, exit, contact, rules, about;
     JLabel instruction;
     JPanel buttonPanel;
     ImageIcon paperBack = new ImageIcon("assets/paperBack.png");
@@ -35,34 +31,9 @@ public class PVP extends JFrame implements ActionListener {
         setLocationRelativeTo(null);
     }
 
-    private void initComponents() {
-        mb = new JMenuBar();
-        options = new JMenu("Options");
-        help = new JMenu("Help");
-        newGame = new JMenuItem("New Game");
-        exit = new JMenuItem("Exit");
-        contact = new JMenuItem("Contact");
-        rules = new JMenuItem("Rules");
-        about = new JMenuItem("About");
-
-        options.add(newGame);
-        options.add(exit);
-        help.add(contact);
-        help.add(rules);
-        help.add(about);
-
-        // adding actionListenrs to menu items
-        newGame.addActionListener(this);
-        exit.addActionListener(this);
-        contact.addActionListener(this);
-        rules.addActionListener(this);
-        about.addActionListener(this);
-
-        mb.add(options);
-        mb.add(help);
-        add(mb);
-        setJMenuBar(mb);
-
+    private void initComponents() {   
+        MenuBarController menuHelper = new MenuBarController(this);
+        setJMenuBar(menuHelper.createMenuBar());
         instruction = new JLabel();
         instruction.setFont(new Font("Serif", Font.BOLD, 24));
         instruction.setHorizontalAlignment(SwingConstants.CENTER);
@@ -161,38 +132,6 @@ public class PVP extends JFrame implements ActionListener {
             clip.start();
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             e.printStackTrace();
-        }
-    }
-
-    public void actionPerformed(ActionEvent evt) {
-        switch (evt.getActionCommand()) {
-            case "New Game":
-                Start ob = new Start();
-                ob.setVisible(true);
-                dispose();
-                break;
-
-            case "Exit":
-                System.exit(0);
-                break;
-
-            case "Contact":
-                try {
-                    Desktop.getDesktop().browse(new URL("https://twitter.com/SoumyadeepB2001").toURI());
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, "Browser not found");
-                }
-                break;
-
-            case "Rules":
-                JOptionPane.showMessageDialog(null,
-                        "In order to win the game, a player must place three of their marks in a horizontal, vertical or diagonal row.");
-                break;
-
-            case "About":
-                JOptionPane.showMessageDialog(null,
-                        "Tic-Tac-Toe Game\nVersion: 1.0.1\nProgram written by Soumyadeep Banerjee\nBSc. (Hons) Computer Science, 1st Year (2020)");
-                break;
         }
     }
 }
