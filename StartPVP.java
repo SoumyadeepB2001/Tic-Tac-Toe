@@ -2,17 +2,17 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 
-public class Start extends JFrame implements ActionListener {
+public class StartPVP extends JFrame implements ActionListener {
 	JButton start, exit;
 	JPanel contentPane;
 	public JLabel heading, player1, player2;
 	public JTextField txtPlayer1, txtPlayer2;
 
 	public static void main(String[] args) {
-		new Start();
+		new StartPVP();
 	}
 
-	Start() {
+	StartPVP() {
 		this.setTitle("Start Game");
 		setVisible(true);
 		setResizable(false);

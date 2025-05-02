@@ -39,7 +39,7 @@ public class MenuBarController implements ActionListener {
 
             case "New Game":
                 frame.dispose();
-                new Start();
+                new StartGame();
                 break;
 
             case "Exit":
