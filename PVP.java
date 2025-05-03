@@ -23,7 +23,6 @@ public class PVP extends JFrame {
         player1 = pl1;
         player2 = pl2;
         initComponents();
-        setLocationRelativeTo(null);
         setTitle("Tic-Tac-Toe");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(510, 510);
@@ -31,7 +30,7 @@ public class PVP extends JFrame {
         setLocationRelativeTo(null);
     }
 
-    private void initComponents() {   
+    private void initComponents() {
         MenuBarController menuHelper = new MenuBarController(this);
         setJMenuBar(menuHelper.createMenuBar());
         instruction = new JLabel();
@@ -94,10 +93,9 @@ public class PVP extends JFrame {
         for (int[] combo : winningCombinations) {
             if (A[combo[0]] != '\0' && A[combo[0]] == A[combo[1]] && A[combo[1]] == A[combo[2]]) {
                 instruction.setText("");
-                disableButtons();
-
                 String winner = (turn % 2 == 1) ? player1 : player2;
                 JOptionPane.showMessageDialog(null, winner + " wins");
+                disableButtons();
                 return;
             }
         }

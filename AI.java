@@ -24,11 +24,11 @@ public class AI extends JFrame {
         this.aiSymbol = isHumanFirst ? 'O' : 'X';
 
         initComponents();
-        setLocationRelativeTo(null);
         setTitle("Tic-Tac-Toe: AI vs Player");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(510, 510);
         setResizable(false);
+        setLocationRelativeTo(null);
 
         // AI plays immediately if it goes first
         if (!isHumanTurn) {
@@ -129,9 +129,9 @@ public class AI extends JFrame {
             char a = board[combo[0]], b = board[combo[1]], c = board[combo[2]];
             if (a != '\0' && a == b && b == c) {
                 instruction.setText("");
-                disableButtons();
                 String winner = (a == humanSymbol) ? "You win!" : "AI wins!";
                 JOptionPane.showMessageDialog(this, winner);
+                disableButtons();
                 return true;
             }
         }

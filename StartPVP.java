@@ -8,10 +8,6 @@ public class StartPVP extends JFrame implements ActionListener {
 	public JLabel heading, player1, player2;
 	public JTextField txtPlayer1, txtPlayer2;
 
-	public static void main(String[] args) {
-		new StartPVP();
-	}
-
 	StartPVP() {
 		this.setTitle("Start Game");
 		setVisible(true);
